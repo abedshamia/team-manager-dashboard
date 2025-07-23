@@ -1,6 +1,6 @@
-import { create } from 'zustand';
-import { persist } from 'zustand/middleware';
-import { UIState } from '@/types';
+import { create } from "zustand";
+import { persist } from "zustand/middleware";
+import { UIState } from "@/types";
 
 export const useUIStore = create<UIState>()(
   persist(
@@ -8,8 +8,8 @@ export const useUIStore = create<UIState>()(
       isModalOpen: false,
       modalType: null,
       modalData: null,
-      
-      openModal: (type: UIState['modalType'], data = null) => {
+
+      openModal: (type: UIState["modalType"], data = null) => {
         set((state) => ({
           ...state,
           isModalOpen: true,
@@ -33,10 +33,9 @@ export const useUIStore = create<UIState>()(
       },
     }),
     {
-      name: 'ui-storage',
+      name: "ui-storage",
       partialize: (state) => ({ isDarkMode: state.isDarkMode }),
       skipHydration: true,
-    }
-  )
+    },
+  ),
 );
-

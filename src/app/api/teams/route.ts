@@ -1,24 +1,21 @@
-import { NextRequest, NextResponse } from 'next/server';
-import { db } from '@/db';
-import { teams, members, users } from '@/db/schema';
-import { eq, desc, like, or, count, sql, and } from 'drizzle-orm';
+import { NextRequest, NextResponse } from "next/server";
+import { db } from "@/db";
+import { teams, members, users } from "@/db/schema";
+import { eq, desc, like, or, count, sql, and } from "drizzle-orm";
 
 export async function GET(request: NextRequest) {
   try {
     const { searchParams } = new URL(request.url);
-    const page = parseInt(searchParams.get('page') || '1');
-    const limit = parseInt(searchParams.get('limit') || '10');
-    const search = searchParams.get('search') || '';
-    
+    const page = parseInt(searchParams.get("page") || "1");
+    const limit = parseInt(searchParams.get("limit") || "10");
+    const search = searchParams.get("search") || "";
+
     const offset = (page - 1) * limit;
 
     const whereConditions = [];
     if (search) {
       whereConditions.push(
-        or(
-          like(teams.name, `%${search}%`),
-          like(users.email, `%${search}%`)
-        )
+        or(like(teams.name, `%${search}%`), like(users.email, `%${search}%`)),
       );
     }
 
@@ -58,10 +55,10 @@ export async function GET(request: NextRequest) {
       },
     });
   } catch (error) {
-    console.error('Error fetching teams:', error);
+    console.error("Error fetching teams:", error);
     return NextResponse.json(
-      { error: 'Failed to fetch teams' },
-      { status: 500 }
+      { error: "Failed to fetch teams" },
+      { status: 500 },
     );
   }
 }
@@ -72,8 +69,8 @@ export async function POST(request: NextRequest) {
 
     if (!name) {
       return NextResponse.json(
-        { error: 'Team name is required' },
-        { status: 400 }
+        { error: "Team name is required" },
+        { status: 400 },
       );
     }
 
@@ -89,10 +86,10 @@ export async function POST(request: NextRequest) {
 
     return NextResponse.json(newTeam[0], { status: 201 });
   } catch (error) {
-    console.error('Error creating team:', error);
+    console.error("Error creating team:", error);
     return NextResponse.json(
-      { error: 'Failed to create team' },
-      { status: 500 }
+      { error: "Failed to create team" },
+      { status: 500 },
     );
   }
 }

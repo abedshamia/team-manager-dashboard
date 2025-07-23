@@ -1,6 +1,6 @@
-import { create } from 'zustand';
-import { persist } from 'zustand/middleware';
-import { User, AuthState } from '@/types';
+import { create } from "zustand";
+import { persist } from "zustand/middleware";
+import { User, AuthState } from "@/types";
 
 export const useAuthStore = create<AuthState>()(
   persist(
@@ -10,10 +10,10 @@ export const useAuthStore = create<AuthState>()(
 
       login: async (email: string, password: string): Promise<boolean> => {
         try {
-          const response = await fetch('/api/auth/login', {
-            method: 'POST',
+          const response = await fetch("/api/auth/login", {
+            method: "POST",
             headers: {
-              'Content-Type': 'application/json',
+              "Content-Type": "application/json",
             },
             body: JSON.stringify({ email, password }),
           });
@@ -28,7 +28,7 @@ export const useAuthStore = create<AuthState>()(
           }
           return false;
         } catch (error) {
-          console.error('Login error:', error);
+          console.error("Login error:", error);
           return false;
         }
       },
@@ -48,7 +48,7 @@ export const useAuthStore = create<AuthState>()(
       },
     }),
     {
-      name: 'auth-storage',
-    }
-  )
+      name: "auth-storage",
+    },
+  ),
 );
