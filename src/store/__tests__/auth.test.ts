@@ -47,7 +47,12 @@ describe("AuthStore", () => {
   });
 
   it("handles logout", () => {
-    const mockUser = { id: 1, email: "test@test.com", role: "admin" as const, createdAt: new Date().toISOString()}
+    const mockUser = {
+      id: 1,
+      email: "test@test.com",
+      role: "admin" as const,
+      createdAt: new Date().toISOString(),
+    };
     useAuthStore.setState({
       user: mockUser,
       isAuthenticated: true,

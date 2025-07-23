@@ -7,6 +7,7 @@ describe("Type definitions", () => {
       id: 1,
       email: "test@example.com",
       role: "admin",
+      createdAt: "2024-01-01T00:00:00Z",
     };
 
     expect(user.id).toBe(1);
