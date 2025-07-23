@@ -1,13 +1,13 @@
-"use client"
+"use client";
 
-import { useEffect } from 'react';
-import { useUIStore } from '@/store/ui';
+import { useEffect } from "react";
+import { useUIStore } from "@/store/ui";
 
 interface ThemeProviderProps {
-  children: React.ReactNode
-  attribute?: string
-  defaultTheme?: string
-  enableSystem?: boolean
+  children: React.ReactNode;
+  attribute?: string;
+  defaultTheme?: string;
+  enableSystem?: boolean;
 }
 
 export function ThemeProvider({
@@ -21,8 +21,8 @@ export function ThemeProvider({
 
   useEffect(() => {
     const root = window.document.documentElement;
-    root.classList.remove('light', 'dark');
-    root.classList.add(isDarkMode ? 'dark' : 'light');
+    root.classList.remove("light", "dark");
+    root.classList.add(isDarkMode ? "dark" : "light");
   }, [isDarkMode]);
 
   return <div>{children}</div>;

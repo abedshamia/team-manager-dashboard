@@ -15,7 +15,8 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Team Manager Dashboard",
-  description: "A complete team and member management dashboard built with Next.js",
+  description:
+    "A complete team and member management dashboard built with Next.js",
 };
 
 export default function RootLayout({

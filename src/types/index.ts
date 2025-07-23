@@ -1,7 +1,7 @@
 export interface User {
   id: number;
   email: string;
-  role: 'admin' | 'member';
+  role: "admin" | "member";
   createdAt: string;
 }
 
@@ -20,7 +20,7 @@ export interface Member {
   id: number;
   name: string;
   email: string;
-  role: 'admin' | 'member';
+  role: "admin" | "member";
   teamId: number;
   createdAt: string;
 }
@@ -37,8 +37,13 @@ export interface UIState {
   isDarkMode: boolean;
   toggleDarkMode: () => void;
   isModalOpen: boolean;
-  modalType: 'create-team' | 'edit-team' | 'create-member' | 'edit-member' | null;
+  modalType:
+    | "create-team"
+    | "edit-team"
+    | "create-member"
+    | "edit-member"
+    | null;
   modalData: unknown;
-  openModal: (type: UIState['modalType'], data?: unknown) => void;
+  openModal: (type: UIState["modalType"], data?: unknown) => void;
   closeModal: () => void;
 }
