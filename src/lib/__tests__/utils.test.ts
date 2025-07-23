@@ -1,3 +1,4 @@
+import "@testing-library/jest-dom";
 import { cn } from "../utils";
 
 describe("cn utility function", () => {

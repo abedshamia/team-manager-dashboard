@@ -1,3 +1,4 @@
+import "@testing-library/jest-dom";
 import { render, screen, fireEvent, waitFor } from "@testing-library/react";
 import LoginPage from "../login/page";
 import { useAuthStore } from "@/store/auth";

@@ -1,3 +1,4 @@
+import "@testing-library/jest-dom";
 import { User, Team, Member } from "../index";
 
 describe("Type definitions", () => {
