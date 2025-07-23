@@ -13,7 +13,8 @@ npm run dev
 ```
 
 **Demo Login:** `admin@demo.com` / `admin123`  
-**URL:** `http://localhost:3000`
+**URL:** `http://localhost:3000`  
+**Live Demo:** [team-manager-dashboard.vercel.app](https://team-manager-dashboard.vercel.app)
 
 ## 🛠️ Tech Stack
 
@@ -49,3 +50,4 @@ npm run db:seed  # Reset demo data
 
 - **TypeScript Coverage:** 100%
 - **Mobile Responsive:** All devices
+
