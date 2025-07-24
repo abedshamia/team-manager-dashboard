@@ -5,7 +5,7 @@ A modern team management application built with **Next.js 15**, **React 19**, an
 ## 🚀 Quick Start
 
 ```bash
-git clone <repository-url>
+git clone https://github.com/abedshamia/team-manager-dashboard.git
 cd team-manager-dashboard
 npm install
 npm run db:push && npm run db:seed
