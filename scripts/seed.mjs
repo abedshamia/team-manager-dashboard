@@ -1,5 +1,5 @@
-import { drizzle } from 'drizzle-orm/better-sqlite3';
-import Database from 'better-sqlite3';
+import { drizzle } from 'drizzle-orm/libsql';
+import { createClient } from '@libsql/client';
 import { sqliteTable, integer, text } from 'drizzle-orm/sqlite-core';
 import { sql } from 'drizzle-orm';
 
@@ -31,8 +31,11 @@ const members = sqliteTable('members', {
 
 const schema = { users, teams, members };
 
-const sqlite = new Database('sqlite.db');
-const db = drizzle(sqlite, { schema });
+const client = createClient({ 
+  url: process.env.DATABASE_URL || 'file:sqlite.db',
+  authToken: process.env.DATABASE_AUTH_TOKEN 
+});
+const db = drizzle(client, { schema });
 
 async function seed() {
   console.log('🌱 Seeding database...');
@@ -112,7 +115,7 @@ async function seed() {
   console.log('  Admin: admin@demo.com / admin123');
   console.log('  Member: member@demo.com / member123');
   
-  sqlite.close();
+  client.close();
 }
 
 seed().catch((error) => {
