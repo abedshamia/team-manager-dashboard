@@ -10,7 +10,7 @@
     "db:generate": "drizzle-kit generate",
     "db:migrate": "drizzle-kit migrate",
     "db:push": "drizzle-kit push",
-    "db:seed": "node scripts/seed.mjs",
+    "db:seed": "node --env-file=.env scripts/seed.mjs",
     "test": "jest",
     "test:watch": "jest --watch",
     "format": "npx prettier --write \"src/**/*.{ts,tsx,js,jsx,json,css,md}\""
